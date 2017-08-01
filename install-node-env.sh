@@ -10,7 +10,7 @@ install() {
     nodeInstallPath="/usr/lib/"
     nodePkgName="node-$nodeVersion-linux-x64"
     doDownload "$nodeVersion $nodePkgName"
-    tar -zxvf "/tmp/$nodePkgName.tar.xz" -C "$nodeInstallPath"
+    tar -xvf "/tmp/$nodePkgName.tar.xz" -C "$nodeInstallPath"
     ln -s "$nodeInstallPath/$nodePkgName/bin/node" "/usr/local/bin/node"
     ln -s "$nodeInstallPath/$nodePkgName/bin/npm" "/usr/local/bin/npm"
 }
@@ -19,6 +19,7 @@ doDownload() {
     local url nodeVersion nodePkgName pkgPath
     nodeVersion="$1"
     nodePkgName="$2"
+
     url="https://nodejs.org/dist/$nodeVersion/$nodePkgName.tar.xz"
     pkgPath="/tmp"
 
